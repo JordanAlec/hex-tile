@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using DesktopApp.Helpers;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DesktopApp

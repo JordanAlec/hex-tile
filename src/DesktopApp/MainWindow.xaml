@@ -51,7 +51,7 @@
         <!-- =========== SCROLLABLE CONTENT =========== -->
         <ScrollViewer VerticalScrollBarVisibility="Auto">
 
-            <UniformGrid Rows="2"
+            <UniformGrid Rows="4"
                          Columns="3"
                          HorizontalAlignment="Center"
                          VerticalAlignment="Top">
@@ -66,9 +66,7 @@
                         BorderBrush="Gray"
                         BorderThickness="1">
 
-                    <Button Click="TileButton_Click"
-                            Tag="ToggleTuner"
-                            Cursor="Hand">
+                    <Button Click="ToggleTuner_Click" Cursor="Hand">
 
                         <StackPanel>
                             <iconPacks:PackIconMaterial
@@ -95,11 +93,10 @@
                         BorderBrush="Gray"
                         BorderThickness="1">
 
-                    <Button Click="TileButton_Click"
-                            Tag="PreviousPreset"
-                            Cursor="Hand">
 
-                        <StackPanel>
+                <Button Click="PreviousPreset_Click" Cursor="Hand">
+
+                            <StackPanel>
                             <iconPacks:PackIconMaterial
                                 x:Name="PreviousPresetIcon"
                                 Kind="ArrowDownBoldBox"
@@ -124,9 +121,7 @@
                         BorderBrush="Gray"
                         BorderThickness="1">
 
-                    <Button Click="TileButton_Click"
-                            Tag="NextPreset"
-                            Cursor="Hand">
+                <Button Click="NextPreset_Click" Cursor="Hand">
 
                         <StackPanel>
                             <iconPacks:PackIconMaterial
@@ -142,9 +137,225 @@
                         </StackPanel>
                     </Button>
                 </Border>
+                
+                <!-- Tile 4 -->
+                <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
 
-            </UniformGrid>
-        </ScrollViewer>
+                    <Button Click="FS1_Click" Cursor="Hand">
+
+                                    <StackPanel>
+                                        <iconPacks:PackIconMaterial
+                                            x:Name="FS1Icon"
+                                            Kind="ArrowUpBoldBox"
+                                            Width="40"
+                                            Height="40"
+                                            Margin="0,0,0,8"
+                                            HorizontalAlignment="Center"/>
+
+                                        <TextBlock Text="Footswitch 1"
+                                                    HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+
+                <!-- Tile 5 -->
+                <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+
+                    <Button Click="FS2_Click" Cursor="Hand">
+
+                                    <StackPanel>
+                                        <iconPacks:PackIconMaterial
+                                            x:Name="FS2Icon"
+                                            Kind="ArrowUpBoldBox"
+                                            Width="40"
+                                            Height="40"
+                                            Margin="0,0,0,8"
+                                            HorizontalAlignment="Center"/>
+
+                                        <TextBlock Text="Footswitch 2"
+                                                    HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+
+                <!-- Tile 6 -->
+                <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+
+                    <Button Click="FS3_Click" Cursor="Hand">
+
+                                    <StackPanel>
+                                        <iconPacks:PackIconMaterial
+                                            x:Name="FS3Icon"
+                                            Kind="ArrowUpBoldBox"
+                                            Width="40"
+                                            Height="40"
+                                            Margin="0,0,0,8"
+                                            HorizontalAlignment="Center"/>
+
+                                        <TextBlock Text="Footswitch 3"
+                                                    HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+
+                <!-- Tile 7 -->
+                <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+
+                    <Button Click="FS4_Click" Cursor="Hand">
+
+                                    <StackPanel>
+                                        <iconPacks:PackIconMaterial
+                                            x:Name="FS4Icon"
+                                            Kind="ArrowUpBoldBox"
+                                            Width="40"
+                                            Height="40"
+                                            Margin="0,0,0,8"
+                                            HorizontalAlignment="Center"/>
+
+                                        <TextBlock Text="Footswitch 4"
+                                                    HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+
+                <!-- Tile 8 -->
+                <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+
+                    <Button Click="FS5_Click" Cursor="Hand">
+
+                                    <StackPanel>
+                                        <iconPacks:PackIconMaterial
+                                            x:Name="FS5Icon"
+                                            Kind="ArrowUpBoldBox"
+                                            Width="40"
+                                            Height="40"
+                                            Margin="0,0,0,8"
+                                            HorizontalAlignment="Center"/>
+
+                                        <TextBlock Text="Footswitch 5"
+                                                    HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+
+                <!-- Tile 9 -->
+                <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+
+                    <Button Click="FS6_Click" Cursor="Hand">
+
+                                    <StackPanel>
+                                        <iconPacks:PackIconMaterial
+                                            x:Name="FS6Icon"
+                                            Kind="ArrowUpBoldBox"
+                                            Width="40"
+                                            Height="40"
+                                            Margin="0,0,0,8"
+                                            HorizontalAlignment="Center"/>
+
+                                        <TextBlock Text="Footswitch 6"
+                                                    HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+
+                <!-- Tile 10 -->
+                <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+
+                    <Button Click="FS7_Click" Cursor="Hand">
+
+                                    <StackPanel>
+                                        <iconPacks:PackIconMaterial
+                                            x:Name="FS7Icon"
+                                            Kind="ArrowUpBoldBox"
+                                            Width="40"
+                                            Height="40"
+                                            Margin="0,0,0,8"
+                                            HorizontalAlignment="Center"/>
+
+                                        <TextBlock Text="Footswitch 7"
+                                                    HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+
+                <!-- Tile 11 -->
+                <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+
+                    <Button Click="FS8_Click" Cursor="Hand">
+
+                                    <StackPanel>
+                                        <iconPacks:PackIconMaterial
+                                            x:Name="FS8Icon"
+                                            Kind="ArrowUpBoldBox"
+                                            Width="40"
+                                            Height="40"
+                                            Margin="0,0,0,8"
+                                            HorizontalAlignment="Center"/>
+
+                                        <TextBlock Text="Footswitch 8"
+                                                    HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </Border>
+
+                        </UniformGrid>
+                    </ScrollViewer>
 
     </DockPanel>
 </Window>

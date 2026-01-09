@@ -56,6 +56,102 @@ namespace Core.Tests
             AssertSuccessfulResult(expectedResult, result);
         }
 
+        [Fact]
+        public void FS1_Success()
+        {
+            var expectedResult = new SendMidiCommandResponse(
+                new SendMidiCommandRequest(49, 0, 1),
+                true
+            );
+
+            var result = _controller.FS1();
+            AssertSuccessfulResult(expectedResult, result);
+        }
+
+        [Fact]
+        public void FS2_Success()
+        {
+            var expectedResult = new SendMidiCommandResponse(
+                new SendMidiCommandRequest(50, 0, 1),
+                true
+            );
+
+            var result = _controller.FS2();
+            AssertSuccessfulResult(expectedResult, result);
+        }
+
+        [Fact]
+        public void FS3_Success()
+        {
+            var expectedResult = new SendMidiCommandResponse(
+                new SendMidiCommandRequest(51, 0, 1),
+                true
+            );
+
+            var result = _controller.FS3();
+            AssertSuccessfulResult(expectedResult, result);
+        }
+
+        [Fact]
+        public void FS4_Success()
+        {
+            var expectedResult = new SendMidiCommandResponse(
+                new SendMidiCommandRequest(52, 0, 1),
+                true
+            );
+
+            var result = _controller.FS4();
+            AssertSuccessfulResult(expectedResult, result);
+        }
+
+        [Fact]
+        public void FS5_Success()
+        {
+            var expectedResult = new SendMidiCommandResponse(
+                new SendMidiCommandRequest(53, 0, 1),
+                true
+            );
+
+            var result = _controller.FS5();
+            AssertSuccessfulResult(expectedResult, result);
+        }
+
+        [Fact]
+        public void FS6_Success()
+        {
+            var expectedResult = new SendMidiCommandResponse(
+                new SendMidiCommandRequest(54, 0, 1),
+                true
+            );
+
+            var result = _controller.FS6();
+            AssertSuccessfulResult(expectedResult, result);
+        }
+
+        [Fact]
+        public void FS7_Success()
+        {
+            var expectedResult = new SendMidiCommandResponse(
+                new SendMidiCommandRequest(55, 0, 1),
+                true
+            );
+
+            var result = _controller.FS7();
+            AssertSuccessfulResult(expectedResult, result);
+        }
+
+        [Fact]
+        public void FS8_Success()
+        {
+            var expectedResult = new SendMidiCommandResponse(
+                new SendMidiCommandRequest(56, 0, 1),
+                true
+            );
+
+            var result = _controller.FS8();
+            AssertSuccessfulResult(expectedResult, result);
+        }
+
         private void AssertSuccessfulResult(SendMidiCommandResponse expectedResult, SendMidiCommandResponse actualResult)
         {
             Assert.Equivalent(expectedResult, actualResult);
