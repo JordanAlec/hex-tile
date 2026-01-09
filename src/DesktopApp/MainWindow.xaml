@@ -1,12 +1,149 @@
 ﻿<Window x:Class="DesktopApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DesktopApp"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        Title="HexTile"
+        Height="500"
+        Width="800"
+        WindowStartupLocation="CenterScreen">
 
-    </Grid>
+    <DockPanel Margin="16" LastChildFill="True">
+
+        <!-- ================= MENU ================= -->
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Actions">
+                <MenuItem Header="_About"
+                          Click="About_Click"/>
+
+                <MenuItem Header="E_xit"
+                          Click="Exit_Click"/>
+            </MenuItem>
+        </Menu>
+
+        <!-- =============== HEADER ================= -->
+        <StackPanel DockPanel.Dock="Top"
+                    HorizontalAlignment="Center"
+                    Margin="0,12,0,16">
+
+            <TextBlock x:Name="TitleText"
+                       Text="HexTile"
+                       FontSize="32"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
+
+            <TextBlock x:Name="SubTitleText"
+                       Text="Control your HX Stomp foot switches when you can't get near them!"
+                       FontSize="14"
+                       HorizontalAlignment="Center"
+                       Margin="0,6,0,0"/>
+
+            <TextBlock x:Name="ErrorTextBlock"
+                       Text=""
+                       Foreground="Red"
+                       FontSize="14"
+                       FontWeight="Bold"
+                       Visibility="Collapsed"
+                       HorizontalAlignment="Center"
+                       Margin="0,8,0,0"/>
+        </StackPanel>
+
+        <!-- =========== SCROLLABLE CONTENT =========== -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+            <UniformGrid Rows="2"
+                         Columns="3"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Top">
+
+                <!-- Tile 1 -->
+                <Border CornerRadius="8"
+                        Background="White"
+                        Margin="8"
+                        Padding="4"
+                        Width="200"
+                        Height="150"
+                        BorderBrush="Gray"
+                        BorderThickness="1">
+
+                    <Button Click="TileButton_Click"
+                            Tag="ToggleTuner"
+                            Cursor="Hand">
+
+                        <StackPanel>
+                            <iconPacks:PackIconMaterial
+                                x:Name="ToggleTunerIcon"
+                                Kind="Knob"
+                                Width="40"
+                                Height="40"
+                                Margin="0,0,0,8"
+                                HorizontalAlignment="Center"/>
+
+                            <TextBlock Text="Toggle Tuner"
+                                       HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </Border>
+
+                <!-- Tile 2 -->
+                <Border CornerRadius="8"
+                        Background="White"
+                        Margin="8"
+                        Padding="4"
+                        Width="200"
+                        Height="150"
+                        BorderBrush="Gray"
+                        BorderThickness="1">
+
+                    <Button Click="TileButton_Click"
+                            Tag="PreviousPreset"
+                            Cursor="Hand">
+
+                        <StackPanel>
+                            <iconPacks:PackIconMaterial
+                                x:Name="PreviousPresetIcon"
+                                Kind="ArrowDownBoldBox"
+                                Width="40"
+                                Height="40"
+                                Margin="0,0,0,8"
+                                HorizontalAlignment="Center"/>
+
+                            <TextBlock Text="Previous Preset"
+                                       HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </Border>
+
+                <!-- Tile 3 -->
+                <Border CornerRadius="8"
+                        Background="White"
+                        Margin="8"
+                        Padding="4"
+                        Width="200"
+                        Height="150"
+                        BorderBrush="Gray"
+                        BorderThickness="1">
+
+                    <Button Click="TileButton_Click"
+                            Tag="NextPreset"
+                            Cursor="Hand">
+
+                        <StackPanel>
+                            <iconPacks:PackIconMaterial
+                                x:Name="NextPresetIcon"
+                                Kind="ArrowUpBoldBox"
+                                Width="40"
+                                Height="40"
+                                Margin="0,0,0,8"
+                                HorizontalAlignment="Center"/>
+
+                            <TextBlock Text="Next Preset"
+                                       HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </Border>
+
+            </UniformGrid>
+        </ScrollViewer>
+
+    </DockPanel>
 </Window>
