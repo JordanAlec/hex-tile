@@ -1,0 +1,83 @@
+<local:BaseScreen x:Class="DesktopApp.Screens.NavigationScreen"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                xmlns:local="clr-namespace:DesktopApp.Screens">
+    
+    <Grid>
+        <UniformGrid Rows="1"
+                     Columns="3"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center">
+
+            <!-- Tuner Tile -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="ToggleTuner_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="Knob"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Toggle Tuner"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <!-- Previous Preset Tile -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="PreviousPreset_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="ArrowDownBoldBox"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Previous Preset"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <!-- Next Preset Tile -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="NextPreset_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="ArrowUpBoldBox"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Next Preset"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+        </UniformGrid>
+    </Grid>
+</local:BaseScreen>

@@ -1,0 +1,210 @@
+<local:BaseScreen x:Class="DesktopApp.Screens.FootswitchScreen"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                 xmlns:local="clr-namespace:DesktopApp.Screens">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <UniformGrid Rows="3"
+                     Columns="3"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Top">
+
+            <!-- Footswitch 1 -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="FS1_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="Numeric1Box"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Footswitch 1"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <!-- Footswitch 2 -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="FS2_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="Numeric2Box"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Footswitch 2"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <!-- Footswitch 3 -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="FS3_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="Numeric3Box"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Footswitch 3"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <!-- Footswitch 4 -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="FS4_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="Numeric4Box"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Footswitch 4"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <!-- Footswitch 5 -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="FS5_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="Numeric5Box"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Footswitch 5"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <!-- Footswitch 6 (XL only) -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="FS6_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="Numeric6Box"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Footswitch 6"
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="(XL only)"
+                                   FontSize="10"
+                                   Foreground="Gray"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <!-- Footswitch 7 (XL only) -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="FS7_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="Numeric7Box"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Footswitch 7"
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="(XL only)"
+                                   FontSize="10"
+                                   Foreground="Gray"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <!-- Footswitch 8 (XL only) -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="FS8_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="Numeric8Box"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Footswitch 8"
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="(XL only)"
+                                   FontSize="10"
+                                   Foreground="Gray"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+        </UniformGrid>
+    </ScrollViewer>
+</local:BaseScreen>

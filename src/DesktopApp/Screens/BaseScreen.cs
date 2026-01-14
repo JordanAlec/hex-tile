@@ -1,0 +1,85 @@
+﻿using Core;
+using Core.Models.Responses;
+using MahApps.Metro.IconPacks;
+using Microsoft.Extensions.Logging;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+
+namespace DesktopApp.Screens
+{
+    public abstract class BaseScreen : UserControl
+    {
+        protected readonly ILogger Logger;
+        protected readonly HxStompController Controller;
+        public event Action<string>? ErrorOccurred;
+
+        protected BaseScreen(ILogger logger, HxStompController controller)
+        {
+            Logger = logger;
+            Controller = controller;
+        }
+
+        protected async Task TileButton_Click(Func<SendMidiCommandResponse> sendMidiFunc, object sender, RoutedEventArgs e)
+        {
+            await Task.Delay(500);
+
+            if (sender is not Button button) return;
+            if (!button.IsHitTestVisible) return;
+
+            button.IsHitTestVisible = false;
+
+            var icon = GetIconFrom(button);
+            var originalBackground = button.Background;
+            var originalIcon = icon?.Kind ?? PackIconMaterialKind.None;
+
+            var response = sendMidiFunc();
+
+            if (response.Success)
+                SetSuccess(button, icon);
+            else
+                SetFailure(button, icon, response.Message ?? "An error occurred");
+
+            await Task.Delay(1000);
+            SetDefault(button, icon, originalBackground, originalIcon);
+        }
+
+        private void SetSuccess(Button button, PackIconMaterial? icon)
+        {
+            ErrorOccurred?.Invoke(string.Empty);
+            button.Background = Brushes.LightGreen;
+
+            if (icon == null) return;
+            icon.Kind = PackIconMaterialKind.CheckCircleOutline;
+            icon.Foreground = Brushes.DarkGreen;
+        }
+
+        private void SetFailure(Button button, PackIconMaterial? icon, string failureMessage)
+        {
+            Logger.LogError("MIDI Command Failure: {Message}", failureMessage);
+            ErrorOccurred?.Invoke(failureMessage);
+            button.Background = Brushes.IndianRed;
+
+            if (icon == null) return;
+            icon.Kind = PackIconMaterialKind.CloseCircleOutline;
+            icon.Foreground = Brushes.DarkRed;
+        }
+
+        private void SetDefault(Button button, PackIconMaterial? icon, Brush originalBackground, PackIconMaterialKind originalIcon)
+        {
+            button.Background = originalBackground;
+
+            if (icon == null) return;
+            icon.Kind = originalIcon;
+            icon.Foreground = Brushes.Black;
+
+            button.IsHitTestVisible = true;
+        }
+
+        private PackIconMaterial? GetIconFrom(Button button)
+        {
+            if (button.Content is not StackPanel stack || stack.Children.Count == 0) return null;
+            return stack!.Children[0] as PackIconMaterial;
+        }
+    }
+}
