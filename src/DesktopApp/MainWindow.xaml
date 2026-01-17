@@ -49,26 +49,63 @@
                        Margin="0,8,0,0"/>
         </StackPanel>
 
-        <!-- =========== SCREEN TOGGLE BUTTON =========== -->
+        <!-- =========== SCREEN SELECTOR BUTTONS =========== -->
         <StackPanel DockPanel.Dock="Top"
+                    Orientation="Horizontal"
                     HorizontalAlignment="Center"
                     Margin="0,0,0,12">
-            <Button x:Name="ToggleScreenButton"
-                    Click="ToggleScreen_Click"
-                    Width="200"
+            <Button x:Name="NavigationButton"
+                    Click="NavigationScreen_Click"
+                    Width="150"
                     Height="40"
                     FontSize="14"
                     FontWeight="SemiBold"
-                    Cursor="Hand">
+                    Cursor="Hand"
+                    Margin="4"
+                    Visibility="Collapsed">
                 <StackPanel Orientation="Horizontal">
-                    <iconPacks:PackIconMaterial x:Name="ToggleScreenIcon"
-                                                Kind="SwapHorizontal"
+                    <iconPacks:PackIconMaterial Kind="Navigation"
                                                 Width="20"
                                                 Height="20"
                                                 Margin="0,0,8,0"
                                                 VerticalAlignment="Center"/>
-                    <TextBlock x:Name="ToggleScreenText"
-                               Text="Show Footswitches"
+                    <TextBlock Text="Navigation"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="FootswitchButton"
+                    Click="FootswitchScreen_Click"
+                    Width="150"
+                    Height="40"
+                    FontSize="14"
+                    FontWeight="SemiBold"
+                    Cursor="Hand"
+                    Margin="4">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="GestureTapButton"
+                                                Width="20"
+                                                Height="20"
+                                                Margin="0,0,8,0"
+                                                VerticalAlignment="Center"/>
+                    <TextBlock Text="Footswitches"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="SnapshotButton"
+                    Click="SnapshotScreen_Click"
+                    Width="150"
+                    Height="40"
+                    FontSize="14"
+                    FontWeight="SemiBold"
+                    Cursor="Hand"
+                    Margin="4">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="Camera"
+                                                Width="20"
+                                                Height="20"
+                                                Margin="0,0,8,0"
+                                                VerticalAlignment="Center"/>
+                    <TextBlock Text="Snapshots"
                                VerticalAlignment="Center"/>
                 </StackPanel>
             </Button>
@@ -80,6 +117,8 @@
                 <ContentControl x:Name="NavigationScreenControl" 
                                Visibility="Visible"/>
                 <ContentControl x:Name="FootswitchScreenControl" 
+                               Visibility="Collapsed"/>
+                <ContentControl x:Name="SnapshotScreenControl" 
                                Visibility="Collapsed"/>
             </Grid>
         </ContentControl>

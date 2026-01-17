@@ -152,6 +152,78 @@ namespace Core.Tests
             AssertSuccessfulResult(expectedResult, result);
         }
 
+        [Fact]
+        public void Snapshot1_Success()
+        {
+            var expectedResult = new SendMidiCommandResponse(
+                new SendMidiCommandRequest(69, 0, 1),
+                true
+            );
+
+            var result = _controller.Snapshot1();
+            AssertSuccessfulResult(expectedResult, result);
+        }
+
+        [Fact]
+        public void Snapshot2_Success()
+        {
+            var expectedResult = new SendMidiCommandResponse(
+                new SendMidiCommandRequest(69, 1, 1),
+                true
+            );
+
+            var result = _controller.Snapshot2();
+            AssertSuccessfulResult(expectedResult, result);
+        }
+
+        [Fact]
+        public void Snapshot3_Success()
+        {
+            var expectedResult = new SendMidiCommandResponse(
+                new SendMidiCommandRequest(69, 2, 1),
+                true
+            );
+
+            var result = _controller.Snapshot3();
+            AssertSuccessfulResult(expectedResult, result);
+        }
+
+        [Fact]
+        public void Snapshot4_Success()
+        {
+            var expectedResult = new SendMidiCommandResponse(
+                new SendMidiCommandRequest(69, 3, 1),
+                true
+            );
+
+            var result = _controller.Snapshot4();
+            AssertSuccessfulResult(expectedResult, result);
+        }
+
+        [Fact]
+        public void NextSnapshot_Success()
+        {
+            var expectedResult = new SendMidiCommandResponse(
+                new SendMidiCommandRequest(69, 8, 1),
+                true
+            );
+
+            var result = _controller.NextSnapshot();
+            AssertSuccessfulResult(expectedResult, result);
+        }
+
+        [Fact]
+        public void PreviousSnapshot_Success()
+        {
+            var expectedResult = new SendMidiCommandResponse(
+                new SendMidiCommandRequest(69, 9, 1),
+                true
+            );
+
+            var result = _controller.PreviousSnapshot();
+            AssertSuccessfulResult(expectedResult, result);
+        }
+
         private void AssertSuccessfulResult(SendMidiCommandResponse expectedResult, SendMidiCommandResponse actualResult)
         {
             Assert.Equivalent(expectedResult, actualResult);

@@ -26,10 +26,20 @@ public class HxStompController
             : _midiDeviceService.SendMidiCommand(hxStomp, request);
     }
 
+    // Region: Preset Navigation and Tuner
     public SendMidiCommandResponse ToggleTuner() => SendCommand(68, 127);
     public SendMidiCommandResponse PreviousPreset() => SendCommand(72, 0);
     public SendMidiCommandResponse NextPreset() => SendCommand(72, 127);
 
+    // Region: Snapshot Management
+    public SendMidiCommandResponse Snapshot1() => SendCommand(69, 0);
+    public SendMidiCommandResponse Snapshot2() => SendCommand(69, 1);
+    public SendMidiCommandResponse Snapshot3() => SendCommand(69, 2);
+    public SendMidiCommandResponse Snapshot4() => SendCommand(69, 3);
+    public SendMidiCommandResponse NextSnapshot() => SendCommand(69, 8);
+    public SendMidiCommandResponse PreviousSnapshot() => SendCommand(69, 9);
+
+    // Region: Footswitches
     // The following commands work for both the HX Stomp and HX Stomp XL
     public SendMidiCommandResponse FS1() => SendCommand(49, 0);
     public SendMidiCommandResponse FS2() => SendCommand(50, 0);

@@ -1,5 +1,6 @@
 ﻿using Core;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel;
 using System.Windows;
 
 namespace DesktopApp
@@ -8,22 +9,39 @@ namespace DesktopApp
     {
         private Screens.NavigationScreen? _navigationScreen;
         private Screens.FootswitchScreen? _footswitchScreen;
+        private Screens.SnapshotScreen? _snapshotScreen;
+
+        private readonly ILogger<MainWindow> _logger;
 
         public MainWindow(ILogger<MainWindow> logger, HxStompController controller, ILoggerFactory loggerFactory)
         {
+            _logger = logger;
             InitializeComponent();
+
+            _logger.LogInformation("HexTile application started");
 
             var navLogger = loggerFactory.CreateLogger<Screens.NavigationScreen>();
             var fsLogger = loggerFactory.CreateLogger<Screens.FootswitchScreen>();
+            var ssLogger = loggerFactory.CreateLogger<Screens.SnapshotScreen>();
 
             _navigationScreen = new Screens.NavigationScreen(navLogger, controller);
             _footswitchScreen = new Screens.FootswitchScreen(fsLogger, controller);
+            _snapshotScreen = new Screens.SnapshotScreen(ssLogger, controller);
 
             _navigationScreen.ErrorOccurred += OnErrorOccurred;
             _footswitchScreen.ErrorOccurred += OnErrorOccurred;
+            _snapshotScreen.ErrorOccurred += OnErrorOccurred;
 
             NavigationScreenControl.Content = _navigationScreen;
             FootswitchScreenControl.Content = _footswitchScreen;
+            SnapshotScreenControl.Content = _snapshotScreen;
+
+            Closing += MainWindow_Closing;
+        }
+
+        private void MainWindow_Closing(object? sender, CancelEventArgs e)
+        {
+            _logger.LogInformation("HexTile application shutting down");
         }
 
         private void OnErrorOccurred(string errorMessage)
@@ -51,21 +69,37 @@ namespace DesktopApp
             about.ShowDialog();
         }
 
-        private void ToggleScreen_Click(object sender, RoutedEventArgs e)
+        private void NavigationScreen_Click(object sender, RoutedEventArgs e)
         {
+            NavigationScreenControl.Visibility = Visibility.Visible;
+            FootswitchScreenControl.Visibility = Visibility.Collapsed;
+            SnapshotScreenControl.Visibility = Visibility.Collapsed;
+            
+            NavigationButton.Visibility = Visibility.Collapsed;
+            FootswitchButton.Visibility = Visibility.Visible;
+            SnapshotButton.Visibility = Visibility.Visible;
+        }
 
-            if (NavigationScreenControl.Visibility == Visibility.Visible)
-            {
-                NavigationScreenControl.Visibility = Visibility.Collapsed;
-                FootswitchScreenControl.Visibility = Visibility.Visible;
-                ToggleScreenText.Text = "Show Navigation";
-            }
-            else
-            {
-                NavigationScreenControl.Visibility = Visibility.Visible;
-                FootswitchScreenControl.Visibility = Visibility.Collapsed;
-                ToggleScreenText.Text = "Show Footswitches";
-            }
+        private void FootswitchScreen_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationScreenControl.Visibility = Visibility.Collapsed;
+            FootswitchScreenControl.Visibility = Visibility.Visible;
+            SnapshotScreenControl.Visibility = Visibility.Collapsed;
+            
+            NavigationButton.Visibility = Visibility.Visible;
+            FootswitchButton.Visibility = Visibility.Collapsed;
+            SnapshotButton.Visibility = Visibility.Visible;
+        }
+
+        private void SnapshotScreen_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationScreenControl.Visibility = Visibility.Collapsed;
+            FootswitchScreenControl.Visibility = Visibility.Collapsed;
+            SnapshotScreenControl.Visibility = Visibility.Visible;
+            
+            NavigationButton.Visibility = Visibility.Visible;
+            FootswitchButton.Visibility = Visibility.Visible;
+            SnapshotButton.Visibility = Visibility.Collapsed;
         }
     }
 }

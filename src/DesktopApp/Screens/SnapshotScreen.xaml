@@ -1,0 +1,156 @@
+<local:BaseScreen x:Class="DesktopApp.Screens.SnapshotScreen"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                 xmlns:local="clr-namespace:DesktopApp.Screens">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <UniformGrid Rows="2"
+                     Columns="3"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Top">
+
+            <!-- Snapshot 1 -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="Snapshot1_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="Numeric1Box"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Snapshot 1"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <!-- Snapshot 2 -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="Snapshot2_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="Numeric2Box"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Snapshot 2"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <!-- Snapshot 3 -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="Snapshot3_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="Numeric3Box"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Snapshot 3"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <!-- Snapshot 4 -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="Snapshot4_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="Numeric4Box"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Snapshot 4"
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="(XL only)"
+                                   FontSize="10"
+                                   Foreground="Gray"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <!-- Previous Snapshot -->
+            <Border CornerRadius="8"
+                    Background="White"
+                    Margin="8"
+                    Padding="4"
+                    Width="200"
+                    Height="150"
+                    BorderBrush="Gray"
+                    BorderThickness="1">
+                <Button Click="PreviousSnapshot_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="ArrowDownBoldBox"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Previous Snapshot"
+                                   HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+
+            <!-- Next Snapshot -->
+            <Border CornerRadius="8"
+                Background="White"
+                Margin="8"
+                Padding="4"
+                Width="200"
+                Height="150"
+                BorderBrush="Gray"
+                BorderThickness="1">
+                <Button Click="NextSnapshot_Click" Cursor="Hand">
+                    <StackPanel>
+                        <iconPacks:PackIconMaterial
+                            Kind="ArrowUpBoldBox"
+                            Width="40"
+                            Height="40"
+                            Margin="0,0,0,8"
+                            HorizontalAlignment="Center"/>
+                        <TextBlock Text="Next Snapshot"
+                            HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </Border>
+        </UniformGrid>
+    </ScrollViewer>
+</local:BaseScreen>
