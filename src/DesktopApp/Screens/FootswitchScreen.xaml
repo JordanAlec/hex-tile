@@ -8,203 +8,196 @@
         <UniformGrid Rows="3"
                      Columns="3"
                      HorizontalAlignment="Center"
-                     VerticalAlignment="Top">
+                     VerticalAlignment="Top"
+                     Margin="0,12,0,12">
 
             <!-- Footswitch 1 -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="FS1_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="Numeric1Box"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Footswitch 1"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="FS1_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="Numeric1Box"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Footswitch 1"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                </StackPanel>
+            </Button>
 
             <!-- Footswitch 2 -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="FS2_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="Numeric2Box"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Footswitch 2"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="FS2_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="Numeric2Box"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Footswitch 2"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                </StackPanel>
+            </Button>
 
             <!-- Footswitch 3 -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="FS3_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="Numeric3Box"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Footswitch 3"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="FS3_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="Numeric3Box"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Footswitch 3"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                </StackPanel>
+            </Button>
 
             <!-- Footswitch 4 -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="FS4_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="Numeric4Box"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Footswitch 4"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="FS4_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="Numeric4Box"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Footswitch 4"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                </StackPanel>
+            </Button>
 
             <!-- Footswitch 5 -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="FS5_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="Numeric5Box"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Footswitch 5"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="FS5_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="Numeric5Box"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Footswitch 5"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                </StackPanel>
+            </Button>
 
             <!-- Footswitch 6 (XL only) -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="FS6_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="Numeric6Box"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Footswitch 6"
-                                   HorizontalAlignment="Center"/>
-                        <TextBlock Text="(XL only)"
-                                   FontSize="10"
-                                   Foreground="Gray"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="FS6_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="Numeric6Box"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Footswitch 6"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="(XL only)"
+                               Style="{StaticResource MutedTextStyle}"
+                               HorizontalAlignment="Center"
+                               Margin="0,4,0,0"/>
+                </StackPanel>
+            </Button>
 
             <!-- Footswitch 7 (XL only) -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="FS7_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="Numeric7Box"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Footswitch 7"
-                                   HorizontalAlignment="Center"/>
-                        <TextBlock Text="(XL only)"
-                                   FontSize="10"
-                                   Foreground="Gray"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="FS7_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="Numeric7Box"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Footswitch 7"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="(XL only)"
+                               Style="{StaticResource MutedTextStyle}"
+                               HorizontalAlignment="Center"
+                               Margin="0,4,0,0"/>
+                </StackPanel>
+            </Button>
 
             <!-- Footswitch 8 (XL only) -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="FS8_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="Numeric8Box"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Footswitch 8"
-                                   HorizontalAlignment="Center"/>
-                        <TextBlock Text="(XL only)"
-                                   FontSize="10"
-                                   Foreground="Gray"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="FS8_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="Numeric8Box"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Footswitch 8"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="(XL only)"
+                               Style="{StaticResource MutedTextStyle}"
+                               HorizontalAlignment="Center"
+                               Margin="0,4,0,0"/>
+                </StackPanel>
+            </Button>
         </UniformGrid>
     </ScrollViewer>
 </local:BaseScreen>

@@ -5,11 +5,13 @@
         xmlns:screens="clr-namespace:DesktopApp.Screens"
         Icon="Assets/logo.ico"
         Title="HexTile"
-        Height="750"
-        Width="1000"
-        WindowStartupLocation="CenterScreen">
+        Height="1000"
+        Width="1200"
+        WindowStartupLocation="CenterScreen"
+        BorderBrush="{StaticResource BorderColor}"
+        BorderThickness="1">
 
-    <DockPanel Margin="16" LastChildFill="True">
+    <DockPanel LastChildFill="True">
 
         <!-- ================= MENU ================= -->
         <Menu DockPanel.Dock="Top">
@@ -23,105 +25,113 @@
         </Menu>
 
         <!-- =============== HEADER ================= -->
-        <StackPanel DockPanel.Dock="Top"
-                    HorizontalAlignment="Center"
-                    Margin="0,12,0,16">
+        <Border DockPanel.Dock="Top"
+                Background="{StaticResource BackgroundMedium}"
+                BorderBrush="{StaticResource BorderColor}"
+                BorderThickness="0,0,0,1"
+                Margin="0,0,0,0">
+            <StackPanel HorizontalAlignment="Center"
+                        Margin="0,32,0,32">
 
-            <TextBlock x:Name="TitleText"
-                       Text="HexTile"
-                       FontSize="32"
-                       FontWeight="Bold"
-                       HorizontalAlignment="Center"/>
+                <TextBlock x:Name="TitleText"
+                           Text="HexTile"
+                           FontSize="48"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource TextPrimary}"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,12"/>
 
-            <TextBlock x:Name="SubTitleText"
-                       Text="Control your HX Stomp foot switches when you can't get near them!"
-                       FontSize="14"
-                       HorizontalAlignment="Center"
-                       Margin="0,6,0,0"/>
+                <TextBlock x:Name="SubTitleText"
+                           Text="Control your HX Stomp foot switches when you can't get near them!"
+                           FontSize="16"
+                           Foreground="{StaticResource TextSecondary}"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,0"/>
 
-            <TextBlock x:Name="ErrorTextBlock"
-                       Text=""
-                       Foreground="Red"
-                       FontSize="14"
-                       FontWeight="Bold"
-                       Visibility="Collapsed"
-                       HorizontalAlignment="Center"
-                       Margin="0,8,0,0"/>
-        </StackPanel>
+                <TextBlock x:Name="ErrorTextBlock"
+                           Text=""
+                           Foreground="{StaticResource AccentRed}"
+                           FontSize="15"
+                           FontWeight="Bold"
+                           Visibility="Collapsed"
+                           HorizontalAlignment="Center"
+                           Margin="0,16,0,0"/>
+            </StackPanel>
+        </Border>
 
         <!-- =========== SCREEN SELECTOR BUTTONS =========== -->
-        <StackPanel DockPanel.Dock="Top"
-                    Orientation="Horizontal"
-                    HorizontalAlignment="Center"
-                    Margin="0,0,0,12">
-            <Button x:Name="NavigationButton"
-                    Click="NavigationScreen_Click"
-                    Width="150"
-                    Height="40"
-                    FontSize="14"
-                    FontWeight="SemiBold"
-                    Cursor="Hand"
-                    Margin="4"
-                    Visibility="Collapsed">
-                <StackPanel Orientation="Horizontal">
-                    <iconPacks:PackIconMaterial Kind="Navigation"
-                                                Width="20"
-                                                Height="20"
-                                                Margin="0,0,8,0"
-                                                VerticalAlignment="Center"/>
-                    <TextBlock Text="Navigation"
-                               VerticalAlignment="Center"/>
-                </StackPanel>
-            </Button>
-            <Button x:Name="FootswitchButton"
-                    Click="FootswitchScreen_Click"
-                    Width="150"
-                    Height="40"
-                    FontSize="14"
-                    FontWeight="SemiBold"
-                    Cursor="Hand"
-                    Margin="4">
-                <StackPanel Orientation="Horizontal">
-                    <iconPacks:PackIconMaterial Kind="GestureTapButton"
-                                                Width="20"
-                                                Height="20"
-                                                Margin="0,0,8,0"
-                                                VerticalAlignment="Center"/>
-                    <TextBlock Text="Footswitches"
-                               VerticalAlignment="Center"/>
-                </StackPanel>
-            </Button>
-            <Button x:Name="SnapshotButton"
-                    Click="SnapshotScreen_Click"
-                    Width="150"
-                    Height="40"
-                    FontSize="14"
-                    FontWeight="SemiBold"
-                    Cursor="Hand"
-                    Margin="4">
-                <StackPanel Orientation="Horizontal">
-                    <iconPacks:PackIconMaterial Kind="Camera"
-                                                Width="20"
-                                                Height="20"
-                                                Margin="0,0,8,0"
-                                                VerticalAlignment="Center"/>
-                    <TextBlock Text="Snapshots"
-                               VerticalAlignment="Center"/>
-                </StackPanel>
-            </Button>
-        </StackPanel>
+        <Border DockPanel.Dock="Top"
+                Background="{StaticResource BackgroundMedium}"
+                BorderBrush="{StaticResource BorderColor}"
+                BorderThickness="0,0,0,1"
+                Padding="0,16,0,16">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <Button x:Name="NavigationButton"
+                        Click="NavigationScreen_Click"
+                        Width="150"
+                        Height="40"
+                        Style="{StaticResource TabButtonStyle}"
+                        Margin="4">
+                    <StackPanel Orientation="Horizontal">
+                        <iconPacks:PackIconMaterial Kind="Navigation"
+                                                    Width="20"
+                                                    Height="20"
+                                                    Margin="0,0,8,0"
+                                                    VerticalAlignment="Center"/>
+                        <TextBlock Text="Navigation"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="FootswitchButton"
+                        Click="FootswitchScreen_Click"
+                        Width="150"
+                        Height="40"
+                        Style="{StaticResource TabButtonStyle}"
+                        Margin="4">
+                    <StackPanel Orientation="Horizontal">
+                        <iconPacks:PackIconMaterial Kind="GestureTapButton"
+                                                    Width="20"
+                                                    Height="20"
+                                                    Margin="0,0,8,0"
+                                                    VerticalAlignment="Center"/>
+                        <TextBlock Text="Footswitches"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="SnapshotButton"
+                        Click="SnapshotScreen_Click"
+                        Width="150"
+                        Height="40"
+                        Style="{StaticResource TabButtonStyle}"
+                        Margin="4">
+                    <StackPanel Orientation="Horizontal">
+                        <iconPacks:PackIconMaterial Kind="Camera"
+                                                    Width="20"
+                                                    Height="20"
+                                                    Margin="0,0,8,0"
+                                                    VerticalAlignment="Center"/>
+                        <TextBlock Text="Snapshots"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Border>
 
         <!-- =========== SCREENS =========== -->
-        <ContentControl>
-            <Grid>
-                <ContentControl x:Name="NavigationScreenControl" 
-                               Visibility="Visible"/>
-                <ContentControl x:Name="FootswitchScreenControl" 
-                               Visibility="Collapsed"/>
-                <ContentControl x:Name="SnapshotScreenControl" 
-                               Visibility="Collapsed"/>
-            </Grid>
-        </ContentControl>
+        <Border Background="{StaticResource BackgroundDark}"
+                Padding="24">
+            <ContentControl>
+                <Grid>
+                    <ContentControl x:Name="NavigationScreenControl" 
+                                   Visibility="Visible"/>
+                    <ContentControl x:Name="FootswitchScreenControl" 
+                                   Visibility="Collapsed"/>
+                    <ContentControl x:Name="SnapshotScreenControl" 
+                                   Visibility="Collapsed"/>
+                </Grid>
+            </ContentControl>
+        </Border>
 
     </DockPanel>
 </Window>

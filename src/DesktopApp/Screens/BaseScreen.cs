@@ -47,22 +47,22 @@ namespace DesktopApp.Screens
         private void SetSuccess(Button button, PackIconMaterial? icon)
         {
             ErrorOccurred?.Invoke(string.Empty);
-            button.Background = Brushes.LightGreen;
+            button.Background = new SolidColorBrush(Color.FromRgb(0x2E, 0x7D, 0x32)); // Dark green for success
 
             if (icon == null) return;
             icon.Kind = PackIconMaterialKind.CheckCircleOutline;
-            icon.Foreground = Brushes.DarkGreen;
+            icon.Foreground = new SolidColorBrush(Color.FromRgb(0x66, 0xBB, 0x6A)); // Light green for icon
         }
 
         private void SetFailure(Button button, PackIconMaterial? icon, string failureMessage)
         {
             Logger.LogError("MIDI Command Failure: {Message}", failureMessage);
             ErrorOccurred?.Invoke(failureMessage);
-            button.Background = Brushes.IndianRed;
+            button.Background = new SolidColorBrush(Color.FromRgb(0xE6, 0x39, 0x46)); // AccentRed
 
             if (icon == null) return;
             icon.Kind = PackIconMaterialKind.CloseCircleOutline;
-            icon.Foreground = Brushes.DarkRed;
+            icon.Foreground = new SolidColorBrush(Color.FromRgb(0xFF, 0xFF, 0xFF)); // White for visibility
         }
 
         private void SetDefault(Button button, PackIconMaterial? icon, Brush originalBackground, PackIconMaterialKind originalIcon)
@@ -71,7 +71,7 @@ namespace DesktopApp.Screens
 
             if (icon == null) return;
             icon.Kind = originalIcon;
-            icon.Foreground = Brushes.Black;
+            icon.Foreground = new SolidColorBrush(Color.FromRgb(0xFF, 0xFF, 0xFF)); // White - TextPrimary
 
             button.IsHitTestVisible = true;
         }

@@ -11,73 +11,70 @@
                      VerticalAlignment="Center">
 
             <!-- Tuner Tile -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="ToggleTuner_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="Knob"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Toggle Tuner"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="ToggleTuner_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="Knob"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Toggle Tuner"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                </StackPanel>
+            </Button>
 
             <!-- Previous Preset Tile -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="PreviousPreset_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="ArrowDownBoldBox"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Previous Preset"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="PreviousPreset_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="ArrowDownBoldBox"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Previous Preset"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                </StackPanel>
+            </Button>
 
             <!-- Next Preset Tile -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="NextPreset_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="ArrowUpBoldBox"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Next Preset"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="NextPreset_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="ArrowUpBoldBox"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Next Preset"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                </StackPanel>
+            </Button>
         </UniformGrid>
     </Grid>
 </local:BaseScreen>

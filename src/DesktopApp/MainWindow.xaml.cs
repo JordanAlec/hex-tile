@@ -36,6 +36,9 @@ namespace DesktopApp
             FootswitchScreenControl.Content = _footswitchScreen;
             SnapshotScreenControl.Content = _snapshotScreen;
 
+            // Set initial active button style
+            NavigationButton.Style = (Style)FindResource("ActiveTabButtonStyle");
+
             Closing += MainWindow_Closing;
         }
 
@@ -44,7 +47,7 @@ namespace DesktopApp
             _logger.LogInformation("HexTile application shutting down");
         }
 
-        private void OnErrorOccurred(string errorMessage)
+        private async void OnErrorOccurred(string errorMessage)
         {
             if (string.IsNullOrEmpty(errorMessage))
             {
@@ -55,6 +58,11 @@ namespace DesktopApp
             {
                 ErrorTextBlock.Text = errorMessage;
                 ErrorTextBlock.Visibility = Visibility.Visible;
+                
+                // Auto-hide error message after 5 seconds
+                await Task.Delay(5000);
+                ErrorTextBlock.Visibility = Visibility.Collapsed;
+                ErrorTextBlock.Text = string.Empty;
             }
         }
 
@@ -75,9 +83,9 @@ namespace DesktopApp
             FootswitchScreenControl.Visibility = Visibility.Collapsed;
             SnapshotScreenControl.Visibility = Visibility.Collapsed;
             
-            NavigationButton.Visibility = Visibility.Collapsed;
-            FootswitchButton.Visibility = Visibility.Visible;
-            SnapshotButton.Visibility = Visibility.Visible;
+            NavigationButton.Style = (Style)FindResource("ActiveTabButtonStyle");
+            FootswitchButton.Style = (Style)FindResource("TabButtonStyle");
+            SnapshotButton.Style = (Style)FindResource("TabButtonStyle");
         }
 
         private void FootswitchScreen_Click(object sender, RoutedEventArgs e)
@@ -86,9 +94,9 @@ namespace DesktopApp
             FootswitchScreenControl.Visibility = Visibility.Visible;
             SnapshotScreenControl.Visibility = Visibility.Collapsed;
             
-            NavigationButton.Visibility = Visibility.Visible;
-            FootswitchButton.Visibility = Visibility.Collapsed;
-            SnapshotButton.Visibility = Visibility.Visible;
+            NavigationButton.Style = (Style)FindResource("TabButtonStyle");
+            FootswitchButton.Style = (Style)FindResource("ActiveTabButtonStyle");
+            SnapshotButton.Style = (Style)FindResource("TabButtonStyle");
         }
 
         private void SnapshotScreen_Click(object sender, RoutedEventArgs e)
@@ -97,9 +105,9 @@ namespace DesktopApp
             FootswitchScreenControl.Visibility = Visibility.Collapsed;
             SnapshotScreenControl.Visibility = Visibility.Visible;
             
-            NavigationButton.Visibility = Visibility.Visible;
-            FootswitchButton.Visibility = Visibility.Visible;
-            SnapshotButton.Visibility = Visibility.Collapsed;
+            NavigationButton.Style = (Style)FindResource("TabButtonStyle");
+            FootswitchButton.Style = (Style)FindResource("TabButtonStyle");
+            SnapshotButton.Style = (Style)FindResource("ActiveTabButtonStyle");
         }
     }
 }

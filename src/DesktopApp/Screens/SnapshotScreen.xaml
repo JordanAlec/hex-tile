@@ -8,149 +8,144 @@
         <UniformGrid Rows="2"
                      Columns="3"
                      HorizontalAlignment="Center"
-                     VerticalAlignment="Top">
+                     VerticalAlignment="Top"
+                     Margin="0,12,0,12">
 
             <!-- Snapshot 1 -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="Snapshot1_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="Numeric1Box"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Snapshot 1"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="Snapshot1_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="Numeric1Box"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Snapshot 1"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                </StackPanel>
+            </Button>
 
             <!-- Snapshot 2 -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="Snapshot2_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="Numeric2Box"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Snapshot 2"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="Snapshot2_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="Numeric2Box"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Snapshot 2"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                </StackPanel>
+            </Button>
 
             <!-- Snapshot 3 -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="Snapshot3_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="Numeric3Box"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Snapshot 3"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="Snapshot3_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="Numeric3Box"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Snapshot 3"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                </StackPanel>
+            </Button>
 
             <!-- Snapshot 4 -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="Snapshot4_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="Numeric4Box"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Snapshot 4"
-                                   HorizontalAlignment="Center"/>
-                        <TextBlock Text="(XL only)"
-                                   FontSize="10"
-                                   Foreground="Gray"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="Snapshot4_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="Numeric4Box"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Snapshot 4"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="(XL only)"
+                               Style="{StaticResource MutedTextStyle}"
+                               HorizontalAlignment="Center"
+                               Margin="0,4,0,0"/>
+                </StackPanel>
+            </Button>
 
             <!-- Previous Snapshot -->
-            <Border CornerRadius="8"
-                    Background="White"
-                    Margin="8"
-                    Padding="4"
-                    Width="200"
-                    Height="150"
-                    BorderBrush="Gray"
-                    BorderThickness="1">
-                <Button Click="PreviousSnapshot_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="ArrowDownBoldBox"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Previous Snapshot"
-                                   HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="PreviousSnapshot_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="ArrowDownBoldBox"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Previous Snapshot"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                </StackPanel>
+            </Button>
 
             <!-- Next Snapshot -->
-            <Border CornerRadius="8"
-                Background="White"
-                Margin="8"
-                Padding="4"
-                Width="200"
-                Height="150"
-                BorderBrush="Gray"
-                BorderThickness="1">
-                <Button Click="NextSnapshot_Click" Cursor="Hand">
-                    <StackPanel>
-                        <iconPacks:PackIconMaterial
-                            Kind="ArrowUpBoldBox"
-                            Width="40"
-                            Height="40"
-                            Margin="0,0,0,8"
-                            HorizontalAlignment="Center"/>
-                        <TextBlock Text="Next Snapshot"
-                            HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
-            </Border>
+            <Button Click="NextSnapshot_Click" 
+                    Style="{StaticResource TileButtonStyle}"
+                    Width="220"
+                    Height="180"
+                    Margin="12">
+                <StackPanel>
+                    <iconPacks:PackIconMaterial
+                        Kind="ArrowUpBoldBox"
+                        Width="50"
+                        Height="50"
+                        Margin="0,0,0,16"
+                        HorizontalAlignment="Center"
+                        Foreground="{StaticResource TextPrimary}"/>
+                    <TextBlock Text="Next Snapshot"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               Foreground="{StaticResource TextPrimary}"/>
+                </StackPanel>
+            </Button>
         </UniformGrid>
     </ScrollViewer>
 </local:BaseScreen>
