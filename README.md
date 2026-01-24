@@ -2,22 +2,24 @@
 
 ![HexTile Logo](./assets/logo.png 'HexTile Logo')
 
+> ⚠️ **THIS SOFTWARE IS FREE!** If you paid money for HexTile, you have been scammed. It is and always will be free and open source.
+
 HexTile lets you control your HX Stomp foot switches when you can't get near them!
 
 ## About
 HexTile is a desktop application that allows you to control your Line 6 HX Stomp or HX Stomp XL device via USB MIDI.
+
 Plug your USB cable into your computer, launch HexTile, and you can control your device's footswitches, snapshots, tuner, and preset navigation from your computer screen.
 The application doesn't NOT have access to change any of your device's settings, presets or any configuration. It's purely a utility to send MIDI commands via USB to your device. 
 The functionality is simiilar to using a MIDI foot controller, but instead of physical footswitches, you use buttons on your computer screen.
 
-If all the talk about MIDI sounds confusing, don't worry - HexTile is designed to be easy to use and requires no prior knowledge of MIDI. 
-The goal of HexTile is to provide a simple and effective way to control your HX Stomp device remotely in a plug and play manner.
-All future improvements and features will not be at the detriment of this goal.
+If all the talk about MIDI sounds confusing, don't worry - HexTile is designed to be easy to use and requires no prior knowledge of MIDI. The goal of HexTile is to provide a simple and effective way to control your HX Stomp device remotely in a plug and play manner. All future improvements and features will not be at the detriment of this goal.
 
 Logs are saved to `logs\hex_tile_log_{DATE}.log` for troubleshooting purposes. These are just text files and can be opened with any text editor. The key thing the logs provide is insight into is if your device is being detected by HexTile and if MIDI commands have failed to be sent.
 
 ## Limitations
 
+- Windows only application
 - Requires a Line 6 HX Stomp or HX Stomp XL device (naturally...)
 - Requires the device to be connected via USB to your computer
 - Requires your global settings (MIDI/Tempo) to have:
@@ -48,11 +50,29 @@ The goal of this project is to keep it simple and easy to use, so any additional
 	- This will allow users to create their own button layouts and functionality.
 	- This may require some significant effort to implement, so will need to be considered carefully.
 	- The goal of the project is to keep it simple and easy to use, so this may not align with that goal - This feature is not a given, its likely to be removed honestly.
+- Potential cross platform application
+	- Will likely mean moving away from WPF to MAUI if in .NET
+	- If you believe it, MAUI isn't dead yet: https://ismauidead.net/
+	- This will likely come about if there is a need and I settle on the direction of the app
 
+## Installation
+
+- Download the setup executable.
+- Double click and choose your installation path (appdata by default)
+- Finish, check to allow desktop shortcut (if you want), and launch
+- Log files are located in the installation location under "logs"
 
 ## Status
 
-_Development has been paused temporarily (except for maintenance) / repo owner currently using / gathering user feedback to drive further implementation_
+Development has been paused temporarily whilst I use the application, gather specific feedback from trusted individuals, etc. 
+
+This will ultimately drive implementation and help evaluate the future above goals. 
+
+It maybe that this first release is the only release as it meets the many requirements initially set out to do and only maintenance updates are made. My gut feel is that this is unlikely as I'm personally keen to implement the looper functionality and reduce the delays between commands where possible.
+
+Please see the releases for the version 1.0.0. Please note that this is currently only on windows. This is purely because I made this for myself and a few friends that showed interest as well and we all own windows devices. I'd love to make it cross platform but the goal was to get something usable as a v1.
+
+Please feel to download, install and use at your leisure.
 
 ### Notices
 
