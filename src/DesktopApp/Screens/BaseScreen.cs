@@ -22,8 +22,6 @@ namespace DesktopApp.Screens
 
         protected async Task TileButton_Click(Func<SendMidiCommandResponse> sendMidiFunc, object sender, RoutedEventArgs e)
         {
-            await Task.Delay(500);
-
             if (sender is not Button button) return;
             if (!button.IsHitTestVisible) return;
 
@@ -40,7 +38,7 @@ namespace DesktopApp.Screens
             else
                 SetFailure(button, icon, response.Message ?? "An error occurred");
 
-            await Task.Delay(1000);
+            await Task.Delay(Defaults.Button.ResetDelayMilliseconds);
             SetDefault(button, icon, originalBackground, originalIcon);
         }
 
