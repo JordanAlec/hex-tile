@@ -53,7 +53,19 @@
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     Padding="{TemplateBinding Padding}">
                                 <Grid>
-                                    <ContentPresenter ContentSource="Header"
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="16"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock x:Name="CheckMark"
+                                               Grid.Column="0"
+                                               Text="✓"
+                                               Foreground="{StaticResource AccentRed}"
+                                               VerticalAlignment="Center"
+                                               FontSize="11"
+                                               Visibility="Collapsed"/>
+                                    <ContentPresenter Grid.Column="1"
+                                                      ContentSource="Header"
                                                       RecognizesAccessKey="True"
                                                       VerticalAlignment="Center"
                                                       TextElement.Foreground="{TemplateBinding Foreground}"/>
@@ -72,6 +84,9 @@
                                 </Grid>
                             </Border>
                             <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="CheckMark" Property="Visibility" Value="Visible"/>
+                                </Trigger>
                                 <Trigger Property="IsHighlighted" Value="True">
                                     <Setter TargetName="Bd" Property="Background" Value="{StaticResource BackgroundLight}"/>
                                 </Trigger>
