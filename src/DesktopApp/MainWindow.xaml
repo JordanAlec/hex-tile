@@ -19,6 +19,10 @@
                 <MenuItem Header="_Settings"
                           Click="Settings_Click"/>
 
+                <MenuItem Header="_Always on Top"
+                          IsCheckable="True"
+                          Click="AlwaysOnTop_Click"/>
+
                 <MenuItem Header="_About"
                           Click="About_Click"/>
 

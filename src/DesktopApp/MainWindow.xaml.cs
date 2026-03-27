@@ -3,6 +3,7 @@ using Core.Interfaces;
 using Microsoft.Extensions.Logging;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace DesktopApp
 {
@@ -64,6 +65,11 @@ namespace DesktopApp
                 ErrorTextBlock.Visibility = Visibility.Collapsed;
                 ErrorTextBlock.Text = string.Empty;
             }
+        }
+
+        private void AlwaysOnTop_Click(object sender, RoutedEventArgs e)
+        {
+            Topmost = (sender as MenuItem)?.IsChecked ?? false;
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
