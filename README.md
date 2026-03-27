@@ -23,7 +23,7 @@ Logs are saved to `logs\hex_tile_log_{DATE}.log` for troubleshooting purposes. T
 - Requires a Line 6 HX Stomp or HX Stomp XL device (naturally...)
 - Requires the device to be connected via USB to your computer
 - Requires your global settings (MIDI/Tempo) to have:
-	- MIDI Base Channel set to 1
+	- MIDI Base Channel set to match the channel configured in HexTile's Settings (default: 1)
 	- USB MIDI set to On
 - Some features may not be available depending on your device model. The below are only available on HX Stomp XL:
 	- Footswitches 6 - 8
@@ -44,8 +44,6 @@ The goal of this project is to keep it simple and easy to use, so any additional
 	- Potentially with a configurable delay option for when you want to start recording, so you can time appropriately.
 - Test / reduce the delay between commands to make it more responsive.
 	- For my use case its acceptable, but I know some may want it to be more responsive.
-- Ability to change the channel that commands are sent on (rather than defaulting).
-	- I'm aware that some users may have their HX Stomp set to a different MIDI channel in the global settings - I believe 1 is default though.
 - Custom screen (commands) for advanced users.
 	- This will allow users to create their own button layouts and functionality.
 	- This may require some significant effort to implement, so will need to be considered carefully.
@@ -54,6 +52,16 @@ The goal of this project is to keep it simple and easy to use, so any additional
 	- Will likely mean moving away from WPF to MAUI if in .NET
 	- If you believe it, MAUI isn't dead yet: https://ismauidead.net/
 	- This will likely come about if there is a need and I settle on the direction of the app
+
+## Settings
+
+HexTile includes a Settings window accessible via `Actions > Settings` in the menu bar.
+
+| Setting | Description | Default |
+|---|---|---|
+| MIDI Base Channel | The MIDI channel HexTile sends commands on. Must match the MIDI Base Channel set in your HX Stomp's global settings. | 1 |
+
+Settings are saved automatically and persist between sessions.
 
 ## Installation
 
