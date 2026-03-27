@@ -30,7 +30,6 @@ Logs are saved to `logs\hex_tile_log_{DATE}.log` for troubleshooting purposes. T
 	- Snapshot 4
 - Unfortunately it appears that HX Stomp devices do not support identity requests via USB MIDI so automatic detection of whether you have the XL model or not is not possible.
 - Because these MIDI commands are fire and forget, there is no way for HexTile to confirm that your device has received the commands it sends.
-- There is an 'artifical' delay during each command to ensure that the HX Stomp has enough time to process each command.
 
 If any of the above limitations have a workaround or can be improved then I'll do my best to research, reflect and implement them after considering the effort vs benefit.
 The limitations are written based on my own knowledge and testing at the time of writing. If you have any suggestions or improvements then please let me know.
@@ -40,18 +39,11 @@ The limitations are written based on my own knowledge and testing at the time of
 The features listed below are not guaranteed to be implemented, but are ideas for potential future development. They may be added however it depends on the effort vs benefit, how they align with the overall goals of the project and the demand for such features.
 The goal of this project is to keep it simple and easy to use, so any additional features will be carefully considered.
 
+- Keyboard shortcuts to trigger footswitches, snapshots, and navigation without clicking.
 - Looper functionality.
 	- Potentially with a configurable delay option for when you want to start recording, so you can time appropriately.
-- Test / reduce the delay between commands to make it more responsive.
-	- For my use case its acceptable, but I know some may want it to be more responsive.
-- Custom screen (commands) for advanced users.
-	- This will allow users to create their own button layouts and functionality.
-	- This may require some significant effort to implement, so will need to be considered carefully.
-	- The goal of the project is to keep it simple and easy to use, so this may not align with that goal - This feature is not a given, its likely to be removed honestly.
 - Potential cross platform application
-	- Will likely mean moving away from WPF to MAUI if in .NET
-	- If you believe it, MAUI isn't dead yet: https://ismauidead.net/
-	- This will likely come about if there is a need and I settle on the direction of the app
+	- This will only be considered if there is sufficient demand.
 
 ## Settings
 
