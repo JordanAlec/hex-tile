@@ -10,14 +10,17 @@ namespace Core.Tests
     public class HxStompControllerSpec
     {
         private readonly IMidiDeviceService _midiService;
+        private readonly ISettingsService _settingsService;
         private readonly HxStompController _controller;
 
         public HxStompControllerSpec()
         {
             _midiService = Substitute.For<IMidiDeviceService>();
+            _settingsService = Substitute.For<ISettingsService>();
+            _settingsService.SetupGetSettings();
             _midiService.SetupFind();
             _midiService.SetupSuccessfulSendMidiCommand();
-            _controller = new HxStompController(_midiService);
+            _controller = new HxStompController(_midiService, _settingsService);
         }
 
         [Fact]

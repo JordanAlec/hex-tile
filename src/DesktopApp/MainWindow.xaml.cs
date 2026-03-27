@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.Interfaces;
 using Microsoft.Extensions.Logging;
 using System.ComponentModel;
 using System.Windows;
@@ -7,26 +8,26 @@ namespace DesktopApp
 {
     public partial class MainWindow : Window
     {
-        private Screens.NavigationScreen? _navigationScreen;
-        private Screens.FootswitchScreen? _footswitchScreen;
-        private Screens.SnapshotScreen? _snapshotScreen;
+        private Screens.NavigationScreen _navigationScreen;
+        private Screens.FootswitchScreen _footswitchScreen;
+        private Screens.SnapshotScreen _snapshotScreen;
 
         private readonly ILogger<MainWindow> _logger;
+        private readonly ILoggerFactory _loggerFactory;
+        private readonly ISettingsService _settingsService;
 
-        public MainWindow(ILogger<MainWindow> logger, HxStompController controller, ILoggerFactory loggerFactory)
+        public MainWindow(ILogger<MainWindow> logger, HxStompController controller, ILoggerFactory loggerFactory, ISettingsService settingsService)
         {
+            _settingsService = settingsService;
             _logger = logger;
+            _loggerFactory = loggerFactory;
             InitializeComponent();
 
             _logger.LogInformation("HexTile application started");
 
-            var navLogger = loggerFactory.CreateLogger<Screens.NavigationScreen>();
-            var fsLogger = loggerFactory.CreateLogger<Screens.FootswitchScreen>();
-            var ssLogger = loggerFactory.CreateLogger<Screens.SnapshotScreen>();
-
-            _navigationScreen = new Screens.NavigationScreen(navLogger, controller);
-            _footswitchScreen = new Screens.FootswitchScreen(fsLogger, controller);
-            _snapshotScreen = new Screens.SnapshotScreen(ssLogger, controller);
+            _navigationScreen = new Screens.NavigationScreen(loggerFactory.CreateLogger<Screens.NavigationScreen>(), controller);
+            _footswitchScreen = new Screens.FootswitchScreen(loggerFactory.CreateLogger<Screens.FootswitchScreen>(), controller);
+            _snapshotScreen = new Screens.SnapshotScreen(loggerFactory.CreateLogger<Screens.SnapshotScreen>(), controller);
 
             _navigationScreen.ErrorOccurred += OnErrorOccurred;
             _footswitchScreen.ErrorOccurred += OnErrorOccurred;
@@ -59,22 +60,22 @@ namespace DesktopApp
                 ErrorTextBlock.Text = errorMessage;
                 ErrorTextBlock.Visibility = Visibility.Visible;
                 
-                // Auto-hide error message after 5 seconds
-                await Task.Delay(5000);
+                await Task.Delay(Defaults.Window.ErrorVisibilityMessageMilliseconds);
                 ErrorTextBlock.Visibility = Visibility.Collapsed;
                 ErrorTextBlock.Text = string.Empty;
             }
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        private void Exit_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            new SettingsWindow(_loggerFactory.CreateLogger<SettingsWindow>(), _settingsService) { Owner = this }.ShowDialog();
         }
 
         private void About_Click(object sender, RoutedEventArgs e)
         {
-            var about = new AboutWindow { Owner = this };
-            about.ShowDialog();
+            new AboutWindow() { Owner = this }.ShowDialog();
         }
 
         private void NavigationScreen_Click(object sender, RoutedEventArgs e)

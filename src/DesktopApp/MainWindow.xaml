@@ -16,6 +16,9 @@
         <!-- ================= MENU ================= -->
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Actions">
+                <MenuItem Header="_Settings"
+                          Click="Settings_Click"/>
+
                 <MenuItem Header="_About"
                           Click="About_Click"/>
 
