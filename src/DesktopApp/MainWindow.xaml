@@ -9,7 +9,8 @@
         Width="1200"
         WindowStartupLocation="CenterScreen"
         BorderBrush="{StaticResource BorderColor}"
-        BorderThickness="1">
+        BorderThickness="1"
+        PreviewKeyDown="MainWindow_PreviewKeyDown">
 
     <DockPanel LastChildFill="True">
 

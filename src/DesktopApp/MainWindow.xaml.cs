@@ -1,9 +1,11 @@
 ﻿using Core;
+using Core.Factories;
 using Core.Interfaces;
 using Microsoft.Extensions.Logging;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace DesktopApp
 {
@@ -16,10 +18,13 @@ namespace DesktopApp
         private readonly ILogger<MainWindow> _logger;
         private readonly ILoggerFactory _loggerFactory;
         private readonly ISettingsService _settingsService;
+        private readonly HxStompController _controller;
+        private bool _dialogOpen;
 
         public MainWindow(ILogger<MainWindow> logger, HxStompController controller, ILoggerFactory loggerFactory, ISettingsService settingsService)
         {
             _settingsService = settingsService;
+            _controller = controller;
             _logger = logger;
             _loggerFactory = loggerFactory;
             InitializeComponent();
@@ -76,12 +81,29 @@ namespace DesktopApp
 
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
+            _dialogOpen = true;
             new SettingsWindow(_loggerFactory.CreateLogger<SettingsWindow>(), _settingsService) { Owner = this }.ShowDialog();
+            _dialogOpen = false;
         }
 
         private void About_Click(object sender, RoutedEventArgs e)
         {
+            _dialogOpen = true;
             new AboutWindow() { Owner = this }.ShowDialog();
+            _dialogOpen = false;
+        }
+
+        private void MainWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (_dialogOpen) return;
+
+            var map = KeyboardShortcutMapFactory.Create(_settingsService.GetSettings().KeyboardShortcuts, _controller);
+
+            if (!map.TryGetValue(e.Key.ToString(), out var action)) return;
+
+            e.Handled = true;
+            var response = action();
+            OnErrorOccurred(response.Success ? string.Empty : response.Message ?? "An error occurred");
         }
 
         private void NavigationScreen_Click(object sender, RoutedEventArgs e)

@@ -39,7 +39,6 @@ The limitations are written based on my own knowledge and testing at the time of
 The features listed below are not guaranteed to be implemented, but are ideas for potential future development. They may be added however it depends on the effort vs benefit, how they align with the overall goals of the project and the demand for such features.
 The goal of this project is to keep it simple and easy to use, so any additional features will be carefully considered.
 
-- Keyboard shortcuts to trigger footswitches, snapshots, and navigation without clicking.
 - Looper functionality.
 	- Potentially with a configurable delay option for when you want to start recording, so you can time appropriately.
 - Potential cross platform application
@@ -52,6 +51,7 @@ HexTile includes a Settings window accessible via `Actions > Settings` in the me
 | Setting | Description | Default |
 |---|---|---|
 | MIDI Base Channel | The MIDI channel HexTile sends commands on. Must match the MIDI Base Channel set in your HX Stomp's global settings. | 1 |
+| Keyboard Shortcuts | Configurable key bindings for all footswitches, snapshots, preset navigation, and the tuner toggle. Click a box and press any key to assign; Backspace or Delete clears it. Shortcuts are only active when HexTile is in focus. | `1`–`8` for FS1–FS8, `Q` `W` `E` `R` for Snapshots 1–4, `↑` `↓` for snapshot navigation, `←` `→` for preset navigation, `T` for tuner |
 
 Settings are saved automatically and persist between sessions.
 

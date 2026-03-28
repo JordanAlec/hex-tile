@@ -11,7 +11,17 @@
                     Value = newChannel,
                     MinAllowedMidiChannel = appSettingsData.MidiChannel.MinAllowedMidiChannel,
                     MaxAllowedMidiChannel = appSettingsData.MidiChannel.MaxAllowedMidiChannel
-                }
+                },
+                KeyboardShortcuts = appSettingsData.KeyboardShortcuts
+            };
+        }
+
+        public static AppSettingsData CreateWithShortcuts(AppSettingsData appSettingsData, KeyboardShortcutsSettingsData shortcuts)
+        {
+            return new AppSettingsData
+            {
+                MidiChannel = appSettingsData.MidiChannel,
+                KeyboardShortcuts = shortcuts
             };
         }
     }
