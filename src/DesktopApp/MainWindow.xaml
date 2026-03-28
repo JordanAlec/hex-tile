@@ -9,13 +9,21 @@
         Width="1200"
         WindowStartupLocation="CenterScreen"
         BorderBrush="{StaticResource BorderColor}"
-        BorderThickness="1">
+        BorderThickness="1"
+        PreviewKeyDown="MainWindow_PreviewKeyDown">
 
     <DockPanel LastChildFill="True">
 
         <!-- ================= MENU ================= -->
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Actions">
+                <MenuItem Header="_Settings"
+                          Click="Settings_Click"/>
+
+                <MenuItem Header="_Always on Top"
+                          IsCheckable="True"
+                          Click="AlwaysOnTop_Click"/>
+
                 <MenuItem Header="_About"
                           Click="About_Click"/>
 

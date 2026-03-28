@@ -1,32 +1,39 @@
 ﻿using Core;
+using Core.Factories;
+using Core.Interfaces;
 using Microsoft.Extensions.Logging;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace DesktopApp
 {
     public partial class MainWindow : Window
     {
-        private Screens.NavigationScreen? _navigationScreen;
-        private Screens.FootswitchScreen? _footswitchScreen;
-        private Screens.SnapshotScreen? _snapshotScreen;
+        private Screens.NavigationScreen _navigationScreen;
+        private Screens.FootswitchScreen _footswitchScreen;
+        private Screens.SnapshotScreen _snapshotScreen;
 
         private readonly ILogger<MainWindow> _logger;
+        private readonly ILoggerFactory _loggerFactory;
+        private readonly ISettingsService _settingsService;
+        private readonly HxStompController _controller;
+        private bool _dialogOpen;
 
-        public MainWindow(ILogger<MainWindow> logger, HxStompController controller, ILoggerFactory loggerFactory)
+        public MainWindow(ILogger<MainWindow> logger, HxStompController controller, ILoggerFactory loggerFactory, ISettingsService settingsService)
         {
+            _settingsService = settingsService;
+            _controller = controller;
             _logger = logger;
+            _loggerFactory = loggerFactory;
             InitializeComponent();
 
             _logger.LogInformation("HexTile application started");
 
-            var navLogger = loggerFactory.CreateLogger<Screens.NavigationScreen>();
-            var fsLogger = loggerFactory.CreateLogger<Screens.FootswitchScreen>();
-            var ssLogger = loggerFactory.CreateLogger<Screens.SnapshotScreen>();
-
-            _navigationScreen = new Screens.NavigationScreen(navLogger, controller);
-            _footswitchScreen = new Screens.FootswitchScreen(fsLogger, controller);
-            _snapshotScreen = new Screens.SnapshotScreen(ssLogger, controller);
+            _navigationScreen = new Screens.NavigationScreen(loggerFactory.CreateLogger<Screens.NavigationScreen>(), controller);
+            _footswitchScreen = new Screens.FootswitchScreen(loggerFactory.CreateLogger<Screens.FootswitchScreen>(), controller);
+            _snapshotScreen = new Screens.SnapshotScreen(loggerFactory.CreateLogger<Screens.SnapshotScreen>(), controller);
 
             _navigationScreen.ErrorOccurred += OnErrorOccurred;
             _footswitchScreen.ErrorOccurred += OnErrorOccurred;
@@ -59,22 +66,44 @@ namespace DesktopApp
                 ErrorTextBlock.Text = errorMessage;
                 ErrorTextBlock.Visibility = Visibility.Visible;
                 
-                // Auto-hide error message after 5 seconds
-                await Task.Delay(5000);
+                await Task.Delay(Defaults.Window.ErrorVisibilityMessageMilliseconds);
                 ErrorTextBlock.Visibility = Visibility.Collapsed;
                 ErrorTextBlock.Text = string.Empty;
             }
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        private void AlwaysOnTop_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            Topmost = (sender as MenuItem)?.IsChecked ?? false;
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e) => Application.Current.Shutdown();
+
+        private void Settings_Click(object sender, RoutedEventArgs e)
+        {
+            _dialogOpen = true;
+            new SettingsWindow(_loggerFactory.CreateLogger<SettingsWindow>(), _settingsService) { Owner = this }.ShowDialog();
+            _dialogOpen = false;
         }
 
         private void About_Click(object sender, RoutedEventArgs e)
         {
-            var about = new AboutWindow { Owner = this };
-            about.ShowDialog();
+            _dialogOpen = true;
+            new AboutWindow() { Owner = this }.ShowDialog();
+            _dialogOpen = false;
+        }
+
+        private void MainWindow_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (_dialogOpen) return;
+
+            var map = KeyboardShortcutMapFactory.Create(_settingsService.GetSettings().KeyboardShortcuts, _controller);
+
+            if (!map.TryGetValue(e.Key.ToString(), out var action)) return;
+
+            e.Handled = true;
+            var response = action();
+            OnErrorOccurred(response.Success ? string.Empty : response.Message ?? "An error occurred");
         }
 
         private void NavigationScreen_Click(object sender, RoutedEventArgs e)

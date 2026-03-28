@@ -19,6 +19,8 @@ public static class ServiceProviderHelper
                 .WriteTo.File($"logs\\hex_tile_log_.log", rollingInterval: RollingInterval.Day)
                 .CreateLogger());
         });
+
+        services.AddSingleton<ISettingsService, SettingsService>();
         services.AddSingleton<IMidiDeviceService, MidiDeviceService>();
         services.AddSingleton<HxStompController>();
         services.AddSingleton<MainWindow>();

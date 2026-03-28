@@ -6,19 +6,20 @@ namespace Core;
 
 public class HxStompController
 {
-    private const int DefaultChannel = 1;
     private const string NotFoundError = "No HX Stomp found via USB. Please connect and restart the app.";
 
     private readonly IMidiDeviceService _midiDeviceService;
+    private readonly ISettingsService _settingsService;
 
-    public HxStompController(IMidiDeviceService midiDeviceService)
+    public HxStompController(IMidiDeviceService midiDeviceService, ISettingsService settingsService)
     {
         _midiDeviceService = midiDeviceService;
+        _settingsService = settingsService;
     }
 
     private SendMidiCommandResponse SendCommand(int controller, int value)
     {
-        var request = new SendMidiCommandRequest(controller, value, DefaultChannel);
+        var request = new SendMidiCommandRequest(controller, value, _settingsService.GetSettings().MidiChannel.Value);
         using var hxStomp = _midiDeviceService.Find("HX Stomp");
 
         return hxStomp == null

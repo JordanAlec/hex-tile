@@ -1,0 +1,162 @@
+<Window x:Class="DesktopApp.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Settings"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+
+    <Border Background="{StaticResource BackgroundDark}"
+            BorderBrush="{StaticResource BorderAccent}"
+            BorderThickness="1">
+        <StackPanel Margin="32,24,32,24">
+
+            <TextBlock Text="Settings"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource TextPrimary}"
+                       Margin="0,0,0,24"/>
+
+            <!-- MIDI Base Channel -->
+            <TextBlock Text="MIDI Base Channel"
+                       Foreground="{StaticResource TextPrimary}"
+                       FontSize="14"
+                       FontWeight="SemiBold"
+                       Margin="0,0,0,4"/>
+
+            <TextBlock Text="Select the MIDI channel your HX Stomp is configured to receive on."
+                       TextWrapping="Wrap"
+                       Foreground="{StaticResource TextSecondary}"
+                       FontSize="12"
+                       MaxWidth="320"
+                       Margin="0,0,0,8"/>
+
+            <ComboBox x:Name="MidiChannelComboBox"
+                      Width="120"
+                      Height="32"
+                      HorizontalAlignment="Left"
+                      Margin="0,0,0,24"/>
+
+            <!-- Keyboard Shortcuts -->
+            <TextBlock Text="Keyboard Shortcuts"
+                       Foreground="{StaticResource TextPrimary}"
+                       FontSize="14"
+                       FontWeight="SemiBold"
+                       Margin="0,0,0,4"/>
+
+            <TextBlock Text="Click a box and press a key to assign a shortcut. Backspace or Delete clears it. Shortcuts only trigger when HexTile is in focus."
+                       TextWrapping="Wrap"
+                       Foreground="{StaticResource TextSecondary}"
+                       FontSize="12"
+                       MaxWidth="320"
+                       Margin="0,0,0,8"/>
+
+            <TextBlock x:Name="ShortcutErrorText"
+                       Foreground="{StaticResource AccentRed}"
+                       FontSize="12"
+                       FontWeight="SemiBold"
+                       TextWrapping="Wrap"
+                       MaxWidth="320"
+                       Visibility="Collapsed"
+                       Margin="0,0,0,8"/>
+
+            <ScrollViewer MaxHeight="260"
+                          VerticalScrollBarVisibility="Auto"
+                          Margin="0,0,0,24">
+                <Grid Width="320">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="90"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Footswitch 1" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="ShortcutFS1" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Footswitch 2" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="ShortcutFS2" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Footswitch 3" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="ShortcutFS3" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Footswitch 4" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" x:Name="ShortcutFS4" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Footswitch 5" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" x:Name="ShortcutFS5" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="5" Grid.Column="0" Text="Footswitch 6 (XL only)" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" x:Name="ShortcutFS6" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="6" Grid.Column="0" Text="Footswitch 7 (XL only)" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="6" Grid.Column="1" x:Name="ShortcutFS7" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="7" Grid.Column="0" Text="Footswitch 8 (XL only)" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="7" Grid.Column="1" x:Name="ShortcutFS8" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="8" Grid.Column="0" Text="Snapshot 1" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="8" Grid.Column="1" x:Name="ShortcutSnapshot1" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="9" Grid.Column="0" Text="Snapshot 2" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="9" Grid.Column="1" x:Name="ShortcutSnapshot2" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="10" Grid.Column="0" Text="Snapshot 3" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="10" Grid.Column="1" x:Name="ShortcutSnapshot3" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="11" Grid.Column="0" Text="Snapshot 4 (XL only)" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="11" Grid.Column="1" x:Name="ShortcutSnapshot4" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="12" Grid.Column="0" Text="Next Snapshot" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="12" Grid.Column="1" x:Name="ShortcutNextSnapshot" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="13" Grid.Column="0" Text="Previous Snapshot" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="13" Grid.Column="1" x:Name="ShortcutPreviousSnapshot" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="14" Grid.Column="0" Text="Next Preset" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="14" Grid.Column="1" x:Name="ShortcutNextPreset" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="15" Grid.Column="0" Text="Previous Preset" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="15" Grid.Column="1" x:Name="ShortcutPreviousPreset" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+
+                    <TextBlock Grid.Row="16" Grid.Column="0" Text="Toggle Tuner" Foreground="{StaticResource TextPrimary}" FontSize="12" VerticalAlignment="Center" Margin="0,3,0,3"/>
+                    <TextBox Grid.Row="16" Grid.Column="1" x:Name="ShortcutToggleTuner" Height="26" IsReadOnly="True" TextAlignment="Center" VerticalContentAlignment="Center" Background="{StaticResource BackgroundMedium}" Foreground="{StaticResource TextPrimary}" BorderBrush="{StaticResource BorderAccent}" Cursor="Arrow" PreviewKeyDown="ShortcutBox_PreviewKeyDown" Margin="0,3,0,3"/>
+                </Grid>
+            </ScrollViewer>
+
+            <!-- Buttons -->
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Content="Cancel"
+                        Width="100"
+                        Height="40"
+                        Style="{StaticResource TabButtonStyle}"
+                        Margin="0,0,8,0"
+                        Click="Cancel_Click"/>
+                <Button Content="Save"
+                        Width="100"
+                        Height="40"
+                        Style="{StaticResource TabButtonStyle}"
+                        Click="Save_Click"/>
+            </StackPanel>
+
+        </StackPanel>
+    </Border>
+</Window>
